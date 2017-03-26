@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
     "react-scripts": "0.9.5"
   },
   "dependencies": {

@@ -1,14 +1,12 @@
+
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Button from '../components/Button';
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
-  ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
-  ))
-  .add('with primary background', () => (
-    <Button onClick={action('clicked')} primary>Primary Button</Button>
-  ));
+import { storiesOf } from '@kadira/storybook';
+import { withKnobs, text, boolean, number } from '@kadira/storybook-addon-knobs';
+const stories = storiesOf('Storybook Knobs', module);
+stories.addDecorator(withKnobs);
+
+stories.add('with a button', () => (
+  <Button primary={boolean('Primary', true)}>{ text('Label', '😀 😎 👍 💯') }</Button>
+));

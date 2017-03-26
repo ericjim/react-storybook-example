@@ -1,14 +1,12 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Rotate from '../components/Rotate';
 
-storiesOf('Rotate', module)
-  .add('with no interval', () => (
-    <Rotate>😎</Rotate>
-  ))
-  .add('with a faster interval', () => (
-    <Rotate interval="0.9">🤢</Rotate>
-  ))
-  .add('with a slower interval', () => (
-    <Rotate interval="4">😪</Rotate>
-  ));
+import { storiesOf } from '@kadira/storybook';
+import { withKnobs, text, boolean, number } from '@kadira/storybook-addon-knobs';
+const stories = storiesOf('Storybook Knobs', module);
+stories.addDecorator(withKnobs);
+
+stories.add('Rotate', () => {
+  const interval = number('interval', 2);
+  return (<Rotate interval={`${interval}`}>🤢</Rotate>);
+});
